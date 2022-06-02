@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApiBasicApp.Data;
+using WebApiBasicApp.Services;
 
 namespace WebApiBasicApp
 {
@@ -37,6 +38,7 @@ namespace WebApiBasicApp
             services.AddDbContext<SanPhamDbContext>(options => {
                 options.UseSqlServer(Configuration.GetConnectionString("MyDB"));
             });
+            services.AddScoped<ISanPhamRepository, SanPhamRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
